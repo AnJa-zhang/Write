@@ -4,7 +4,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
   entry: {
-    core: ["react", "redux", "react-router"],
+    core: ["react", "redux", "react-router","react-redux"],
     main: './src/index.js'
   },
   devServer: {
