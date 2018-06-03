@@ -7,6 +7,7 @@ module.exports = {
     core: ["react", "redux", "react-router","react-redux"],
     main: './src/index.js'
   },
+  devtool: 'source-map',
   devServer: {
    contentBase: './dist',
    port: 9000

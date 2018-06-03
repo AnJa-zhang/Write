@@ -1,0 +1,168 @@
+@charset "utf-8";
+
+@screen-xxs:	320px;
+@screen-xs:		480px;
+@screen-s:		720px;
+@screen-m:		990px;
+@screen-l:		1200px;
+@screen-xl:		1500px;
+
+/* color defination */
+@white:					#fff;
+@lighter:				#c8c8c5;
+@darken:				#525252;
+@black:					#000;
+@gray3:					#333;
+@gray6:					#666;
+@gray9:					#999;
+@grayC:					#ccc;
+@brand-color:			#52c2af;
+@brand-darker:			hsv(hsvhue(@brand-color), hsvsaturation(@brand-color), hsvvalue(@brand-color)-10%);
+@assertive-color:		#f77250;
+@assertive-font:		#411b0b;
+@assertive-bg:			#b3e9eb;
+@assertive-darker:		hsv(hsvhue(@assertive-color), hsvsaturation(@assertive-color), hsvvalue(@assertive-color)-10%);
+@secondary-color:		#90cf47;
+@secondary-darker:		hsv(hsvhue(@secondary-color), hsvsaturation(@secondary-color), hsvvalue(@secondary-color)-10%);
+
+@multiply-color:		@gray9;
+@screen-color:			@gray6;
+@font-color-base:		@darken;
+@background-color-base:	#f1f1f1;
+@border-color-base:		#dfdfdf;
+
+@body-font-color:		#101010;
+
+@link-color:			@assertive-font;
+@link-active-color:		darken(@link-color, 15%);
+@link-visitied-color:	@link-color;
+
+@error-bg-color:		#f2dede;
+@error-font-color:		#d9534f;
+@error-border-color:	darken(@error-font-color, 5%);
+@warning-bg-color:		#fcf8e3;
+@warning-font-color:	#f0ad4e;
+@warning-border-color:	darken(@warning-font-color, 5%);
+@success-bg-color:		#dff0d8;
+@success-font-color:	#5cb85c;
+@success-border-color:	darken(@success-font-color, 5%);
+@primary-bg-color:		#e3f2f3;
+@primary-font-color:	@brand-color;
+@primary-border-color:	darken(@primary-font-color, 5%);
+
+@newbie-color:			#ffd338;
+@creative-color:		#ffac4d;
+@challenge-color:		#ff7d64;
+@trial-color:			#aed17b;
+
+/* font defination */
+@font-family:			"Helvetica Neue", Helvetica, Arial, sans-serif, "Microsoft YaHei", "Hiragino Sans GB";
+@font-family-light:		"Helvetica Neue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
+@font-size-small:		12px;
+@font-size-base: 		14px;
+@font-size-normal:		16px;
+@font-size-larger:		18px;
+
+/* form defination */
+@form-title-color:		@body-font-color;
+@form-label-color:		@body-font-color;
+@form-input-border-color:#88c3c6;
+@form-input-border-darker:hsv(hsvhue(@form-input-border-color), hsvsaturation(@form-input-border-color), hsvvalue(@form-input-border-color)-20%);
+@form-input-height:		32px;
+
+
+/* structure defination */
+@page-padding-horizontal:	40px;
+@section-gap-vertical:		20px;
+@section-gap-horizontal:	20px;
+@content-gap-horizontal:	10px;
+
+/* animation defination */
+@animate-duration: 300ms;
+
+.transition(transform, @s) {
+	-webkit-transition: -webkit-transform @s;
+	-moz-transition: -moz-transform @s;
+	-ms-transition: -moz-transform @s;
+	-o-transition: -o-transform @s;
+	transition: transform @s;
+}
+.transition(@p, @s) when (default()) {
+	-webkit-transition: @p @s;
+	-moz-transition: @p @s;
+	-ms-transition: @p @s;
+	-o-transition: @p @s;
+	transition: @p @s;
+}
+.transform(@p) {
+	-webkit-transform: @p;
+	-moz-transform: @p;
+	-ms-transform: @p;
+	-o-transform: @p;
+	transform: @p;
+}
+.animation(@n, @d, @t, @a) {
+	-webkit-animation: @n @d @t @a;
+	-moz-animation: @n @d @t @a;
+	-ms-animation: @n @d @t @a;
+	-o-animation: @n @d @t @a;
+	animation: @n @d @t @a;
+}
+
+/* utils defination */
+.clearfix() {
+	*zoom: 1;
+	&:after {
+		display: table;
+		content: "";
+		line-height: 0;
+		clear: both;
+	}
+}
+.absolute-middle() {
+	position: absolute;
+	top: 0; right: 0; bottom: 0; left: 0;
+	margin: auto;
+}
+.appearance(@val) {
+	-webkit-appearance: @val;
+	-moz-appearance: @val;
+	-ms-appearance: @val;
+	appearance: @val;
+}
+.box-sizing(@boxmodel) {
+	-webkit-box-sizing: @boxmodel;
+	-moz-box-sizing: @boxmodel;
+	-ms-box-sizing: @boxmodel;
+	-o-box-sizing: @boxmodel;
+	box-sizing: @boxmodel;
+}
+.box-shadow(@shadow) {
+	-webkit-box-shadow: @shadow;
+	-moz-box-shadow: @shadow;
+	-ms-box-shadow: @shadow;
+	box-shadow: @shadow;
+}
+.border-radius(@radius) {
+	-webkit-border-radius: @radius;
+	-moz-border-radius: @radius;
+	-ms-border-radius: @radius;
+	-o-border-radius: @radius;
+	border-radius: @radius;
+}
+.text-ellipsis() {
+	white-space: nowrap;
+	-webkit-text-overflow: ellipsis;
+	-moz-text-overflow: ellipsis;
+	-ms-text-overflow: ellipsis;
+	-o-text-overflow: ellipsis;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+.linear-gradient(@angle, @start, @stop) {
+	background-image: -webkit-linear-gradient(@angle, @start, @stop);
+	background-image: -moz-linear-gradient(@angle, @start, @stop);
+	background-image: -ms-linear-gradient(@angle, @start, @stop);
+	background-image: -o-linear-gradient(@angle, @start, @stop);
+	background-image: linear-gradient(@angle, @start, @stop);
+}
